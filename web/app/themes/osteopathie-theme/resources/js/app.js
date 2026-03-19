@@ -61,3 +61,42 @@ if (textPresentation && presentationCTA) {
     ),
     '-=0.5');
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  let bgImg = document.querySelector('.bg-img');
+  const imgBase = bgImg.getAttribute('src');
+
+  const pairs = [
+    {
+      container: document.querySelector('.nourrisson-container'),
+      circle: document.querySelector('.circle-bb'),
+      detail: document.querySelector('.detail-bb'),
+      img: document.querySelector('.img-nourrisson'),
+    },
+    {
+      container: document.querySelector('.enceinte-container'),
+      circle: document.querySelector('.circle-femme'),
+      detail: document.querySelector('.detail-femme'),
+      img: document.querySelector('.img-enceinte '),
+    },
+    {
+      container: document.querySelector('.senior-container'),
+      circle: document.querySelector('.circle-senior'),
+      detail: document.querySelector('.detail-senior'),
+      img: document.querySelector('.img-senior '),
+    },
+  ];
+
+  pairs.forEach((element) => {
+    element.circle.addEventListener('mouseenter', () => {
+      element.container.classList.add('active');
+      element.detail.classList.add('active');
+      bgImg.setAttribute('src', element.img.getAttribute('src'));
+    });
+    element.circle.addEventListener('mouseleave', () => {
+      element.container.classList.remove('active');
+      element.detail.classList.remove('active');
+      bgImg.setAttribute('src', imgBase);
+    });
+  });
+});

@@ -5,15 +5,18 @@
 $hero_photo= get_field("hero-photo"); 
 $photo_presentation =get_field("photo-presentation"); 
 $carte_cabinet=get_field("carte-cabinet"); 
-$photo_bg_localisation=get_field("photo-bg-localisation")
+$photo_bg_localisation=get_field("photo-bg-localisation"); 
+$photo_osteo_nourrisson=get_field("osteo-nourrisson"); 
+$photo_enceinte=get_field("osteo-enceinte"); 
+$photo_senior=get_field("osteo-senior"); 
 @endphp
 
-@if($photo_presentation)
+
     <img src={{"$photo_presentation"}} 
         alt=""
-        class="fixed cover w-full">
+        class="bg-img fixed cover w-full transform duration-500 transition-all ">
         
-@endif
+
 
 <section >
        @if($hero_photo)
@@ -54,8 +57,113 @@ $photo_bg_localisation=get_field("photo-bg-localisation")
         </div>
 </section>
 
-<section class="bg-base-300/90 m-24 rounded-2xl">
-<h2>Comment se déroule une séance d'ostéopathie</h2>
+<section class="bg-base-300/90 m-24 rounded-2xl p-8 justify-center flex flex-col"> 
+<h2 class="mx-auto mb-8">Comment se déroule une séance d'ostéopathie</h2>
+        <div class="w-full h-full grid grid-cols-[1fr_2fr] gap-16 justify-between">
+                <div class=" flex flex-col p-8 ">
+                        <span class="relative span-1  circle-bb rounded-full overflow-hidden  transform duration-200 transition-all ease-in-out hover:scale-105 hover:cursor-pointer">
+                        @if($photo_osteo_nourrisson)
+                        
+                         <img src={{"$photo_osteo_nourrisson"}}
+                              alt="ostéopatie nourrisson" 
+                              class="img-nourrisson absolute inset-0 h-full cover" >
+                              <div class=" absolute inset-0 bg-black/20 transform duration-100 transition-opacity ease-in-out hover:bg-black/10"></div>
+                        @endif
+                        </span>
+                        
+                        <span class="relative span-1 circle-femme rounded-full overflow-hidden transform duration-200 transition-all ease-in-out hover:scale-105 hover:cursor-pointer ">
+                        @if($photo_enceinte)
+                        
+                         <img src={{"$photo_enceinte"}}
+                              alt="ostéopatie femme enceinte" 
+                              class="img-enceinte absolute inset-0 w-full cover center " >
+                              <div class=" absolute inset-0 bg-black/20 transform duration-100 transition-opacity ease-in-out hover:bg-black/10"></div>
+
+                        @endif
+                        </span>
+                        <span class="relative span-1 circle-senior rounded-full overflow-hidden  transform duration-200 transition-all ease-in-out hover:scale-105 hover:cursor-pointer">
+                         @if($photo_enceinte)
+                        
+                         <img src={{"$photo_senior"}}
+                              alt="ostéopatie senior" 
+                              class="img-senior absolute inset-0 h-full cover center " >
+                              <div class=" absolute inset-0 bg-black/20 transform duration-100 transition-opacity ease-in-out hover:bg-black/10"></div>
+
+                        @endif
+                        </span>
+                        <span class="span-1"></span>
+                </div>
+                <div class= "details-container flex justify-center items-center  p-12 ">
+                        <div class="detail-container absolute w-full h-full nourrisson-container border border-blue-400 ">
+                                @if($photo_osteo_nourrisson)
+                        
+                                        <img src={{"$photo_osteo_nourrisson"}}
+                                        alt="ostéopatie nourrisson" 
+                                        class="absolute inset-0 h-full cover" >
+                                <div class="absolute inset-0 bg-black/20  transform duration-100 transition-opacity ease-in-out hover:bg-black/10 "></div>
+                                @endif
+                                <div class="detail detail-bb ">
+                                <h5 class="text-xl mb-8">Quels troubles/symptômes l’ostéopathe peut-il traiter ?</h5>
+                                <ul class="space-y-6">
+                                <li>Troubles neuro végétatifs : pleurs fréquents, troubles du sommeil, énervements, etc.</li>
+                                <li>Troubles digestifs : coliques, constipation, RGO, régurgitations, etc.</li>
+                                <li>Troubles ORL : succion difficile, bronchiolite (en complément du traitement médical et kinésithérapeute si besoin), otites à répétition, laryngite, rhinite, etc.</li>
+                                <li>Troubles musculo-squelettiques : plagiocéphalie (déformation du crâne, tête plate, asymétrie de la face), torticolis congénital (le bébé ne tourne la tête que d’un côté), etc.</li>
+                                <li>Pensez à apporter le carnet de santé de votre nourrisson afin que l’ostéopathe dispose de toutes les informations nécessaires au bon déroulement de la consultation.</li>
+                                </ul>
+                
+                        </div>
+                        </div>
+                        <div class="detail-container absolute w-full h-full enceinte-container ">
+                                @if($photo_osteo_nourrisson)
+                        
+                                        <img src={{"$photo_enceinte"}}
+                                        alt="ostéopatie femme enceinte" 
+                                        class="absolute inset-0 w-full cover" >
+                                <div class="absolute inset-0 bg-black/20 transform duration-100 transition-opacity ease-in-out hover:bg-black/10"></div>
+                                @endif
+                                <div class="detail detail-femme ">
+                                <p>Durant leur grossesse, les femmes sont fréquemment touchées par de nombreux symptômes dû aux changements importants de leur corps : maux de dos, lombalgies, sciatiques, douleurs au coccyx etc… L’ostéopathe va soulager la femme enceinte grâce à des techniques douces et appropriées pour elle et son bébé.</p>
+                                <h5 class="text-xl mb-8">Pourquoi consulter un ostéopathe pendant une grossesse ?</h5>
+                                <p class="font-bold">Pour Améliorer le confort pendant la grossesse</p>
+                                <ul>
+                                <li>Maux de dos, sciatiques, douleurs du pubis, du coccyx.</li>
+                                <li>Présence d’oedèmes, douleurs de la sphère périnéale</li>
+                                <li>Nausées, vomissements, problèmes digestifs</li>
+                                <li>Fatigue.</li>
+                                </ul>
+                                <p class="font-bold">
+                                Pour Préparer l’accouchement
+                                </p>
+                                <p>
+                                L’ostéopathie est un bon complément aux cours de préparation à l’accouchement. La naissance est un moment intensément fatigant, où votre corps doit faire preuve d’une grande faculté d’adaptation et de déformation. L’ostéopathe pourra s’assurer que la mobilité de votre bassin est bonne, ainsi que l’alignement de votre colonne vertébrale. Un travail débuté au plus tôt permettra de diminuer les obstacles mécaniques (bassin pas assez relâché, muscles contractés) que votre bébé doit franchir pour voir le jour.
+                                </p>
+
+                                </div>
+                        </div>
+
+                        <div class="detail detail-senior detail-container senior-container ">
+                                <p>Durant leur grossesse, les femmes sont fréquemment touchées par de nombreux symptômes dû aux changements importants de leur corps : maux de dos, lombalgies, sciatiques, douleurs au coccyx etc… L’ostéopathe va soulager la femme enceinte grâce à des techniques douces et appropriées pour elle et son bébé.</p>
+                                <h5 class="text-xl mb-8">Pourquoi consulter un ostéopathe pendant une grossesse ?</h5>
+                                <p class="font-bold">Pour Améliorer le confort pendant la grossesse</p>
+                                <ul>
+                                <li>Maux de dos, sciatiques, douleurs du pubis, du coccyx.</li>
+                                <li>Présence d’oedèmes, douleurs de la sphère périnéale</li>
+                                <li>Nausées, vomissements, problèmes digestifs</li>
+                                <li>Fatigue.</li>
+                                </ul>
+                                <p class="font-bold">
+                                Pour Préparer l’accouchement
+                                </p>
+                                <p>
+                                L’ostéopathie est un bon complément aux cours de préparation à l’accouchement. La naissance est un moment intensément fatigant, où votre corps doit faire preuve d’une grande faculté d’adaptation et de déformation. L’ostéopathe pourra s’assurer que la mobilité de votre bassin est bonne, ainsi que l’alignement de votre colonne vertébrale. Un travail débuté au plus tôt permettra de diminuer les obstacles mécaniques (bassin pas assez relâché, muscles contractés) que votre bébé doit franchir pour voir le jour.
+                                </p>
+
+                                </div>
+                        
+                        
+                </div>
+        </div>
 
 
 </section>
