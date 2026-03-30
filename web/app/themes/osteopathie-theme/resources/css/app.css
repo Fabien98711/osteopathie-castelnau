@@ -31,6 +31,20 @@
 }
 
 @layer components {
+  .menu {
+    @apply lg:shadow-md lg:fixed lg:top-0 lg:left-0  lg:!w-full z-50  space-x-8 lg:shadow-md justify-center lg:py-4 no-underline;
+    background: linear-gradient(to bottom, #ffffffbf 0%, #49494926 100%);
+    backdrop-filter: blur(3px);
+    place-content: center;
+    font-weight: 600;
+    /*text-transform: uppercase;*/
+    gap: 4rem;
+    will-change: transform, opacity;
+  }
+
+  .cadre {
+    background-color: #75bcbe;
+  }
   .detail {
     @apply bg-white/60 flex flex-col justify-center p-12 rounded-xl items-center;
   }
@@ -43,20 +57,30 @@
   .detail-container {
     @apply opacity-0 p-24 transform duration-500 transition-all ease-in-out;
   }
+
   .span-1 {
     @apply mb-8;
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
     z-index: 100;
   }
   .active {
-    @apply -translate-x-10 !opacity-100;
+    @apply -translate-y-10 !opacity-85;
     pointer-events: auto;
   }
 
-  .detail-bb,
+  /* .detail-bb,
   .detail-femme {
     @apply inset-0 transform duration-800 transition-all ease-in-out opacity-0;
     pointer-events: none;
+  }
+  */
+
+  .container-circle {
+    @apply opacity-0 rounded-full transform duration-500 transition-all ease-in-out;
+    height: 190%;
+    aspect-ratio: 1;
+    z-index: 50;
+    mask: radial-gradient(circle, black 30%, transparent 70%);
   }
 }

@@ -100,3 +100,91 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+const circleTab = [
+  {
+    container: document.querySelector('.enceinte-container'),
+    icone: document.querySelector('.icone-enceinte'),
+  },
+  {
+    container: document.querySelector('.bébé-container'),
+    icone: document.querySelector('.icone-bébé '),
+  },
+  {
+    container: document.querySelector('.senior-container'),
+    icone: document.querySelector('.icone-senior'),
+  },
+  {
+    container: document.querySelector('.sport-container'),
+    icone: document.querySelector('.icone-sport'),
+  },
+  {
+    container: document.querySelector('.enfant-container'),
+    icone: document.querySelector('.icone-enfant'),
+  },
+];
+
+circleTab.forEach((element) => {
+  element.icone.addEventListener('mouseenter', () => {
+    element.container.classList.add('active');
+    console.log("c'est bon");
+  });
+  element.icone.addEventListener('mouseleave', () => {
+    element.container.classList.remove('active');
+  });
+});
+
+const cadreMap = document.querySelector('.cadre-map');
+const imgMap = document.querySelector('.img-map');
+const cadreInfo = document.querySelector('.cadre-info');
+
+if (imgMap && cadreMap && cadreInfo) {
+  const localisationBlock = gsap.timeline({
+    scrollTrigger: {
+      trigger: cadreMap,
+      start: 'top 80%',
+      toggleActions: 'play reverse play reverse',
+    },
+  });
+
+  localisationBlock
+    .fromTo(
+      cadreMap,
+      {
+        y: -40,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: 'power3.out',
+      },
+    )
+    .fromTo(
+      imgMap,
+      {
+        x: -40,
+        opacity: 0,
+      },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power3.out',
+      },
+    )
+    .fromTo(
+      cadreInfo,
+      {
+        x: 40,
+        opacity: 0,
+      },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power3.out',
+      },
+    );
+}

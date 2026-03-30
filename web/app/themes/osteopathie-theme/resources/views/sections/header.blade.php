@@ -1,11 +1,18 @@
 <header class="banner">
-  <a class="brand" href="{{ home_url('/') }}">
-    
-  </a>
+  
 
-  @if (has_nav_menu('primary_navigation'))
-    <nav class="nav-primary" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
-      {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav', 'echo' => false]) !!}
-    </nav>
-  @endif
+  <nav class="menu flex flex-row justify-around ">
+
+    <span class="menu__nom">Marie Dupont</span>
+
+    <ul class="menu__liste">
+      <li><a href="/">Accueil</a></li>
+      
+    </ul>
+
+    <a href="https://www.doctolib.fr/osteopathe/castelnau-le-lez/rose-mary-guardia-alvarez" target="_blank" >
+                                        <button class="btn  btn-success">Prendre rendez-vous</button>
+                                        </a>
+
+  </nav>
 </header>
