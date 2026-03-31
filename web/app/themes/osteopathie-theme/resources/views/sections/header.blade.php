@@ -1,9 +1,9 @@
 <header class="banner">
   
 
-  <nav class="menu flex flex-row justify-around ">
+  <nav class="menu active-menu  flex flex-row justify-around ">
 
-    <span class="menu__nom">Marie Dupont</span>
+    <span class="menu__nom">Rose Mary Osteopathe</span>
 
     <ul class="menu__liste">
       <li><a href="/">Accueil</a></li>

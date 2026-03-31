@@ -188,3 +188,29 @@ if (imgMap && cadreMap && cadreInfo) {
       },
     );
 }
+
+const menu = document.querySelector('.menu');
+
+if (menu) {
+  let scrollTimer = null;
+  let scrollOrigin = 0;
+
+  document.addEventListener('scroll', () => {
+    let scrollDelta = Math.abs(scrollY - scrollOrigin);
+
+    if (scrollDelta < 5) return;
+
+    scrollOrigin = scrollY;
+    console.log(`scrollY=${scrollY}`);
+    console.log(scrollOrigin);
+
+    if (scrollDelta > 100) {
+      menu.classList.remove('active-menu');
+    }
+
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      menu.classList.add('active-menu');
+    }, 1000);
+  });
+}

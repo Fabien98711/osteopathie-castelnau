@@ -32,7 +32,7 @@
 
 @layer components {
   .menu {
-    @apply lg:shadow-md lg:fixed lg:top-0 lg:left-0  lg:!w-full z-50  space-x-8 lg:shadow-md justify-center lg:py-4 no-underline;
+    @apply opacity-0 lg:shadow-md lg:fixed lg:top-0 lg:left-0  lg:!w-full z-50  space-x-8 lg:shadow-md justify-center lg:py-6 no-underline transform duration-700 transition-all ease-in-out;
     background: linear-gradient(to bottom, #ffffffbf 0%, #49494926 100%);
     backdrop-filter: blur(3px);
     place-content: center;
@@ -40,6 +40,10 @@
     /*text-transform: uppercase;*/
     gap: 4rem;
     will-change: transform, opacity;
+  }
+
+  .active-menu {
+    @apply !opacity-100;
   }
 
   .cadre {
