@@ -26,7 +26,7 @@
   }
 
   section {
-    @apply h-screen relative flex;
+    @apply h-1/2 lg:h-screen relative flex;
   }
 }
 
@@ -45,6 +45,14 @@
   .active-menu {
     @apply !opacity-100;
   }
+
+  /*.burger-lines {
+    @apply w-6 h-5 flex flex-col justify-between items-end;
+  }
+
+  .burger-lines span {
+    @apply h-0.5 bg-white rounded transition-all;
+  }*/
 
   .cadre {
     background-color: #75bcbe;
