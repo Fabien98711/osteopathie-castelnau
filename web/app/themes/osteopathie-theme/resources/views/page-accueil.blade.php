@@ -16,6 +16,16 @@ $pictogramme_sport= get_field("pictogramme-sport");
 $pictogramme_enfant= get_field("pictogramme-enfant"); 
 $photo_sport=get_field("osteo-sport"); 
 $photo_enfant=get_field("osteo-enfant"); 
+$title_nourrisson=get_field("title-nourrisson-popup"); 
+$txt_nourrisson=get_field("txt-nourrisson-popup"); 
+$title_enceinte=get_field("title-enceinte-popup"); 
+$txt_enceinte=get_field("txt-enceinte-popup"); 
+$title_senior=get_field("title-senior-popup"); 
+$txt_senior=get_field("txt-senior-popup"); 
+$title_enfant=get_field("title-enfant-popup"); 
+$txt_enfant=get_field("txt-enfant-popup"); 
+$title_sportif=get_field("title-sportif-popup"); 
+$txt_sportif=get_field("txt-sportif-popup"); 
 
 @endphp
 
@@ -28,41 +38,37 @@ $photo_enfant=get_field("osteo-enfant");
        @if($hero_photo)
            <img src={{"$hero_photo" }}
              alt="cabinet osteopathie Castelnau-le-lez"
-             class="absolut inset-0 cover w-full h-full"
+             class="absolute inset-0 cover w-full h-full"
              loading="lazy">
        @endif
      
         <div class="absolute inset-0 bg-base-200/20"></div>
 
-        <div class="flex flex-col justify-center items-center absolute z-10 h-full w-full text-black" >
+        <div class="absolute flex flex-col justify-center items-center p-2 z-10 h-full w-full text-black" >
         <h1 class="text-center">Cabinet des centurions</h1>
-        <h2 class="hero-page-subtitle">Ostéopathe à Castelnau-le-lez</h2>
+        <h2 class="hero-page-subtitle text-center">Ostéopathe <br>à Castelnau-le-lez</h2>
         </div>
 </section>
 
 
 
-<section class="lg:my-16">
-<div class= "absolute flex flex-col  lg:w-full lg:h-full lg:grid lg:grid-cols-2 lg:gap-16 lg:justify-center lg:items-center lg:p-12">
+<section class="my-4 lg:my-16 !h-screen">
+<div class= " flex flex-col gap-8 lg:w-full lg:h-full lg:grid lg:grid-cols-2 lg:gap-16 lg:justify-center lg:items-center lg:p-12">
                 <div class="lg:max-w-2/3 p-4 justify-center items-center  mx-auto">
-                        <p class="page1-presentation text-center text-black">diplômée de kiné en 2006, puis d'osteopathie en 2015. J'ai exercé dans des centres de rééducatoin, dans des services de pédiatrie. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum quidem magnam placeat et quam repudiandae non porro rem, suscipit impedit hic eos excepturi cumque corrupti alias ipsum fuga obcaecati rerum!
+                        <p class="page1-presentation text-center text-black mb-4">diplômée de kiné en 2006, puis d'osteopathie en 2015. J'ai exercé dans des centres de rééducatoin, dans des services de pédiatrie. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum quidem magnam placeat et quam repudiandae non porro rem, suscipit impedit hic eos excepturi cumque corrupti alias ipsum fuga obcaecati rerum!
                         </p>
-                        <div class="presentation-CTA text-center">
-                              
-                                
+                        <div class="presentation-CTA text-center">     
                                         <a href="https://www.doctolib.fr/osteopathe/castelnau-le-lez/rose-mary-guardia-alvarez" target="_blank" >
                                         <button class="btn  btn-success">Prendre rendez-vous</button>
                                         </a>
-                                
-                        
                         </div>
                         
                 </div>
-                <div class="cadre h-full h-full flex justify-center relative ">
+                <div class="cadre h-full flex justify-center items-center relative ">
                  @if($photo_presentation)
                                 <img src={{"$photo_presentation"}} 
                                 alt="présentation Rose Mary Guardia Alvarez ostéopathe"
-                                class="absolute inset-0 lg:w-4/5 h-auto cover p-8 shadow-lg lg:translate-y-16 lg:-translate-x-16  ">
+                                class="absolute lg:w-4/5 h-5/6 object-cover  lg:translate-y-16 lg:-translate-x-16  ">
                                         
                                 @endif
                         
@@ -76,7 +82,7 @@ $photo_enfant=get_field("osteo-enfant");
 
 
 
-
+{{--
 
 
 <section class="hidden lg:flex justify-center lg:flex-col ">
@@ -215,7 +221,84 @@ $photo_enfant=get_field("osteo-enfant");
         </div>
 
 
+</section> --}}
+
+<section class="section-icon my-16 h-auto flex flex-col justify-center item-center gap-8">
+        <h2 class="mb-8 text-center text-xl lg:text-5xl lg:mb-8">L'ostéopathie, pour qui?</h2>
+        <div class="flex flex-wrap justify-center gap-12 p-4  lg:gap-24">
+               
+                        <div class="relative mobile-circle icon-popup overflow-hidden" 
+                             data-icon="nourrisson"
+                             data-title="{{$title_nourrisson}}"
+                             data-text="{{$txt_nourrisson}}"
+                           >
+                        <img src={{$pictogramme_bb}}
+                        alt="ostéopatie nourrisson" 
+                        class=" inset-0  object-cover overflow-hidden " >
+
+                                
+                        </div>
+                
+
+             
+                        <div class="relative mobile-circle icon-popup overflow-hidden" 
+                        data-icon="femme-enceinte"
+                        data-title="{{$title_enceinte}}"
+                        data-text="{{$txt_enceinte}}">
+                        <img src={{$pictogramme_enceinte}}
+                        alt="ostéopatie femme enceinte et post-partum" 
+                        class=" inset-0 h-full  object-cover overflow-hidden " >
+
+                                
+                        </div>
+                
+
+        
+                <div class="relative mobile-circle icon-popup overflow-hidden" 
+                data-icon="sportif"
+                data-title="{{$title_sportif}}"
+                data-text="{{$txt_sportif}}">
+                <img src={{$pictogramme_sport}}
+                     alt="ostéopatie sportif" 
+                     class=" inset-0  object-cover overflow-hidden " >
+
+                
+        </div>        
+        
+
+        
+                <div class="relative mobile-circle icon-popup overflow-hidden" 
+                     data-icon="enfant"
+                     data-title="{{$title_enfant}}"
+                     data-text="{{$txt_enfant}}">
+                <img src={{$pictogramme_enfant}}
+                     alt="ostéopatie enfants" 
+                     class=" inset-0  object-cover overflow-hidden " >
+                </div>
+
+                <div class="relative mobile-circle icon-popup overflow-hidden" 
+                data-icon="senior"
+                data-title="{{$title_senior}}"
+                data-text="{{$txt_senior}}">
+                <img src={{$pictogramme_senior}}
+                     alt="ostéopatie senior" 
+                     class=" inset-0  object-cover overflow-hidden " >
+                </div>
+       
+
+        </div>
+
+                        <div class="icon-CTA text-center lg:hidden">     
+                                        <a href="https://www.doctolib.fr/osteopathe/castelnau-le-lez/rose-mary-guardia-alvarez" target="_blank" >
+                                        <button class="btn  btn-success">Prendre rendez-vous</button>
+                                        </a>
+                        </div>
+        
+        
+
 </section>
+
+
 
 
 
@@ -262,3 +345,36 @@ $photo_enfant=get_field("osteo-enfant");
         </div>
 </section>
 --}}
+
+<section class=" justify-center items-center">
+        <div class="flex flex-col justify-center items-center text-center px-2">
+                <div class="mb-12 w-full">
+                        <h2 class="mb-6 text-xl ">Le cabinet</h2>
+                                <a href="https://maps.google.com/?q=57+avenue+des+centurions,+34170+Castelnau+le+lez" target="blank" class="mb-6">57 Avenue des Centurions, 34170 Castelnau-le-Lez</a>
+                                
+                                <div class="mb-4 mt-6 ">
+                                        <h4 class="underline">Moyens de transport</h4> 
+                                        <p>
+                                        Tramway - Centurions (ligne 2)<br>
+                                        Bus - Sapins (ligne 35)<br>
+                                        Bus - Décurions (ligne 35)<br>
+                                        </p>
+                                </div>       
+                                <div>
+                                        <h4 class="underline"> Informations pratiques</h4>
+                                        <p>
+                                        Entrée accessible<br>
+                                        Parking gratuit<br>
+                                        </p>
+                                </div>
+                </div>
+                <div>
+                         @if($carte_cabinet)
+                        <img src={{"$carte_cabinet"}} 
+                        alt="localisation avenue des centurions Castelnau le lez"
+                        class="img-map max-w-full lg:h-2/3 lg:-ml-28 lg:shadow-xl">
+                        
+                        @endif
+                </div>
+        </div>
+</section>

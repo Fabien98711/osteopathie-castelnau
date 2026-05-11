@@ -22,11 +22,36 @@
   }
 
   h2 {
-    @apply text-xl lg:text-5xl font-semibold;
+    @apply text-2xl lg:text-5xl font-semibold;
   }
 
   section {
-    @apply h-1/2 lg:h-screen relative flex;
+    @apply min-h-[50vh] lg:h-screen relative flex;
+  }
+
+  p {
+    @apply text-base;
+  }
+
+  dialog {
+    padding: 0;
+    margin: 0;
+    border: none;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    position: fixed;
+    inset: 0; /* top: 0, right: 0, bottom: 0, left: 0 */
+  }
+
+  dialog::backdrop {
+    display: none; /* on le supprime, on gère le fond nous-mêmes */
+  }
+
+  footer {
+    background-color: #75bcbe;
+    color: white;
   }
 }
 
@@ -37,22 +62,42 @@
     backdrop-filter: blur(3px);
     place-content: center;
     font-weight: 600;
-    /*text-transform: uppercase;*/
+    text-transform: uppercase;
     gap: 4rem;
     will-change: transform, opacity;
   }
 
-  .active-menu {
-    @apply !opacity-100;
+  .menu-mobile {
+    @apply z-50   top-0 flex justify-end items-end lg:hidden fixed  !w-full z-50  space-x-8 shadow-md  py-2 no-underline;
+    background: linear-gradient(to bottom, #ffffffbf 0%, #49494926 100%);
+    backdrop-filter: blur(3px);
+    font-weight: 600;
+    text-transform: uppercase;
+    gap: 4rem;
   }
 
-  /*.burger-lines {
+  .active-menu {
+    @apply opacity-100;
+  }
+
+  .burger-lines {
     @apply w-6 h-5 flex flex-col justify-between items-end;
   }
 
   .burger-lines span {
-    @apply h-0.5 bg-white rounded transition-all;
-  }*/
+    @apply h-0.5 rounded transition-all;
+    background-color: #75bcbe;
+  }
+
+  .menu-open .burger-lines span:first-child {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  .menu-open .burger-lines span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-open .burger-lines span:last-child {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
 
   .cadre {
     background-color: #75bcbe;
@@ -94,5 +139,36 @@
     aspect-ratio: 1;
     z-index: 50;
     mask: radial-gradient(circle, black 30%, transparent 70%);
+  }
+
+  .mobile-circle {
+    @apply rounded-full;
+    width: 30%;
+    aspect-ratio: 1;
+    z-index: 50;
+  }
+
+  .popup {
+    @apply transform duration-500 transition-all ease-in-out !w-full !h-full !p-0 !m-0;
+    background-color: #75bcbe;
+  }
+
+  .popup__container {
+    background-color: white;
+    opacity: 85%;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .mobile-circle {
+      width: 15%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .mobile-circle {
+      width: 10%;
+    }
   }
 }

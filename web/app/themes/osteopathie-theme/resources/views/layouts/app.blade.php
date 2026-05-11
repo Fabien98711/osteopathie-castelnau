@@ -25,7 +25,8 @@
 
      
     </div>
-
+    @include('components.icon-popup')
+    @include('sections.footer')
     @php(do_action('get_footer'))
     @php(wp_footer())
   </body>

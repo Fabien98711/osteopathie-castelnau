@@ -7,6 +7,7 @@
 
     <ul class="menu__liste   py-1 px-4 justify-center items-center  flex">
       <li ><a href="/" class="!no-underline">Accueil</a></li>
+      <li ><a href="/articles" class="!no-underline">Articles</a></li>
       
     </ul>
 
@@ -14,6 +15,18 @@
                                         <button class="btn  btn-success text-lg ">Prendre rendez-vous</button>
                                         </a>
 
+  </nav>
+  
+  <nav class="menu-mobile ">
+    <button class="lg:hidden p-2 z-60" type="button" aria-expanded="false">
+      <div class="burger-lines">
+      <span class="w-full"></span>
+      <span class="w-1/2"></span>
+      <span class="w-full"></span>
+
+    </div>
+    </button>
+    
   </nav>
 
 

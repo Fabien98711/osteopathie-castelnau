@@ -62,6 +62,34 @@ if (textPresentation && presentationCTA) {
     '-=0.5');
 }
 
+const sectionIcon = document.querySelector('.section-icon');
+const iconCTA = document.querySelector('.icon-CTA');
+
+if (sectionIcon && iconCTA) {
+  const iconBlock = gsap.timeline({
+    scrollTrigger: {
+      trigger: sectionIcon,
+      start: 'top 80%',
+      toggleActions: 'play reverse play reverse',
+    },
+  });
+
+  (iconBlock.fromTo(
+    iconCTA,
+    {
+      y: 40,
+      opacity: 0,
+    },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1.5,
+      ease: 'power3.out',
+    },
+  ),
+    '-=0.5');
+}
+/*
 document.addEventListener('DOMContentLoaded', function () {
   let bgImg = document.querySelector('.bg-img');
   const imgBase = bgImg.getAttribute('src');
@@ -133,6 +161,7 @@ circleTab.forEach((element) => {
     element.container.classList.remove('active');
   });
 });
+*/
 
 const cadreMap = document.querySelector('.cadre-map');
 const imgMap = document.querySelector('.img-map');
@@ -212,5 +241,34 @@ if (menu) {
     scrollTimer = setTimeout(() => {
       menu.classList.add('active-menu');
     }, 1000);
+  });
+}
+
+//......................;fonctionnement popup...............................//
+
+const iconPopup = document.querySelectorAll('.icon-popup');
+const popup = document.querySelector('.popup');
+const popupClose = document.querySelector('.popup__close');
+let scrollPosition = 0;
+if (iconPopup && popup && popupClose) {
+  iconPopup.forEach((icon) => {
+    icon.addEventListener('click', () => {
+      const popupTitle = document.querySelector('.popup__title');
+      const popupText = document.querySelector('.popup__text');
+      const key = icon.dataset.icon;
+
+      popupTitle.textContent = icon.dataset.title;
+      popupText.textContent = icon.dataset.text;
+
+      scrollPosition = window.scrollY;
+      popup.showModal();
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  popupClose.addEventListener('click', () => {
+    popup.close();
+    document.body.style.overflow = '';
+    window.scrollTo(0, scrollPosition);
   });
 }
